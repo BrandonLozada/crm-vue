@@ -13,6 +13,6 @@ import Heading from '../components/UI/Heading.vue'
                 Agregar Cliente
             </RouterLink>
         </div>
-        <Heading class="text-4xl font-extrabold text-slate-500">Clientes</Heading>
+        <Heading class="text-4xl font-extrabold text-slate-500">Listado de Clientes</Heading>
     </div>
 </template>
