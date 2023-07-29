@@ -9,6 +9,9 @@ defineProps({
         required: true
     }
 })
+const handleSubmit = (data) => {
+    console.log('submit', data)
+}
 </script>
 
 <template>
@@ -26,11 +29,13 @@ defineProps({
                     type="form"
                     submit-label="Agregar Cliente"
                     incomplete-message="No se pudo enviar, revisa los mensajes"
+                    @submit="handleSubmit"
                 >
 
                     <FormKit
                         type="text"
                         label="Nombre"
+                        name="nombre"
                         placeholder="Nombre de Cliente"
                         help="Coloca el Nombre del Cliente que deseas registrar"
                         validation="required"
@@ -40,6 +45,7 @@ defineProps({
                     <FormKit
                         type="text"
                         label="Apellido"
+                        name="apellido"
                         placeholder="Apellido de Cliente"
                         validation="required"
                         :validation-messages="{ required: 'El Apellido del Cliente es obligatorio' }"
@@ -48,6 +54,7 @@ defineProps({
                     <FormKit
                         type="text"
                         label="Email"
+                        name="email"
                         placeholder="Email de Cliente"
                         validation="required|email"
                         :validation-messages="{ required: 'El Email del Cliente es obligatorio', email: 'Coloca un email válido' }"
@@ -56,6 +63,7 @@ defineProps({
                     <FormKit
                         type="text"
                         label="Teléfono"
+                        name="telefono"
                         placeholder="Teléfono: XXX-XXX-XXXX"
                         validation="?matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}}/"
                         :validation-messages="{ matches: 'El formato no es válido' }"
@@ -64,12 +72,14 @@ defineProps({
                     <FormKit
                         type="text"
                         label="Empresa"
+                        name="empresa"
                         placeholder="Empresa del Cliente"
                     />
 
                     <FormKit
                         type="text"
                         label="Puesto"
+                        name="puesto"
                         placeholder="Puesto del Cliente"
                     />
 
