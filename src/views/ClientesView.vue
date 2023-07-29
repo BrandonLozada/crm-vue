@@ -4,7 +4,7 @@ import Heading from '../components/UI/Heading.vue'
 
 defineProps({
     titulo: {
-        type: Object,
+        type: String,
         required: true
     }
 })

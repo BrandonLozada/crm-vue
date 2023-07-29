@@ -5,7 +5,7 @@ import Heading from '../components/UI/Heading.vue'
 
 defineProps({
     titulo: {
-        type: Object,
+        type: String,
         required: true
     }
 })
@@ -14,9 +14,7 @@ defineProps({
 <template>
     <div>
         <div class="flex justify-end">
-            <RouterLink
-                to="inicio"
-            >
+            <RouterLink to="inicio">
                 Inicio
             </RouterLink>
         </div>
@@ -26,16 +24,54 @@ defineProps({
             <div class="mx-auto md:w-2/3 py-20 px-6">
                 <FormKit
                     type="form"
+                    submit-label="Agregar Cliente"
+                    incomplete-message="No se pudo enviar, revisa los mensajes"
                 >
 
-                <FormKit
-                    type="text"
-                    label="Nombre"
-                    placeholder="Nombre de Cliente"
-                    help="Coloca el Nombre del Cliente que deseas registrar"
-                    validation="required"
-                    :validation-messages="{ required: 'El Nombre del Cliente es obligatorio' }"
-                />
+                    <FormKit
+                        type="text"
+                        label="Nombre"
+                        placeholder="Nombre de Cliente"
+                        help="Coloca el Nombre del Cliente que deseas registrar"
+                        validation="required"
+                        :validation-messages="{ required: 'El Nombre del Cliente es obligatorio' }"
+                    />
+
+                    <FormKit
+                        type="text"
+                        label="Apellido"
+                        placeholder="Apellido de Cliente"
+                        validation="required"
+                        :validation-messages="{ required: 'El Apellido del Cliente es obligatorio' }"
+                    />
+
+                    <FormKit
+                        type="text"
+                        label="Email"
+                        placeholder="Email de Cliente"
+                        validation="required|email"
+                        :validation-messages="{ required: 'El Email del Cliente es obligatorio', email: 'Coloca un email válido' }"
+                    />
+
+                    <FormKit
+                        type="text"
+                        label="Teléfono"
+                        placeholder="Teléfono: XXX-XXX-XXXX"
+                        validation="?matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}}/"
+                        :validation-messages="{ matches: 'El formato no es válido' }"
+                    />
+
+                    <FormKit
+                        type="text"
+                        label="Empresa"
+                        placeholder="Empresa del Cliente"
+                    />
+
+                    <FormKit
+                        type="text"
+                        label="Puesto"
+                        placeholder="Puesto del Cliente"
+                    />
 
                 </FormKit>
             </div>
@@ -44,7 +80,8 @@ defineProps({
 </template>
 
 <style>
-    .formkit-wrapper {
-        max-width: 100%;
-    }
+.formkit-wrapper,
+.formkit-fieldset {
+    max-width: 100% !important;
+}
 </style>
