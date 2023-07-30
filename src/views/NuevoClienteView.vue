@@ -96,6 +96,17 @@ const handleSubmit = (data) => {
                         placeholder="Puesto del Cliente"
                     />
 
+                    <FormKit
+                        type="radio"
+                        label="Estado"
+                        name="estado"
+                        :options="[
+                            { label: 'Activo', value: 1 },
+                            { label: 'Inactivo', value: 0 },
+                        ]"
+                        help="¿Cuál es el estado del Cliente?"
+                    />
+
                 </FormKit>
             </div>
         </div>

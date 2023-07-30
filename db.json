@@ -7,14 +7,14 @@
       "telefono": "818-025-1208",
       "empresa": "Don Omar Co.",
       "puesto": "CEO",
-      "estado": 1,
-      "radio_8": 1,
+      "estado": 0,
       "id": 1
     },
     {
       "nombre": "Brandon",
       "apellido": "Lozada",
       "email": "brandy@gmail.com",
+      "telefono": "",
       "empresa": "MEXICAN EFFORT",
       "puesto": "Web Developer",
       "estado": 1,

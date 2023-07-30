@@ -133,10 +133,11 @@ defineProps({
                     <FormKit
                         type="radio"
                         label="Estado"
-                        :options="{
-                            0: 'Inactivo',
-                            1: 'Activo',
-                        }"
+                        name="estado"
+                        :options="[
+                            { label: 'Activo', value: 1 },
+                            { label: 'Inactivo', value: 0 },
+                        ]"
                         help="¿Cuál es el estado del Cliente?"
                         v-model="formData.estado"
                     />

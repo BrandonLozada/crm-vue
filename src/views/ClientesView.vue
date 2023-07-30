@@ -17,6 +17,10 @@ const existenClientes = computed(() => {
     return clientes.value.length > 0
 })
 
+const actualizarEstado = (data) => {
+    console.log("Actualizando...", data)
+}
+
 
 defineProps({
     titulo: {
@@ -54,6 +58,7 @@ defineProps({
                                 v-for="cliente in clientes"
                                 :key="cliente.id"
                                 :cliente="cliente"
+                                @actualizar-estado="actualizarEstado"
                             />
                         </tbody>
                     </table>
