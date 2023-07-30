@@ -13,7 +13,8 @@ export default {
     actualizarCliente(id, data) {
         return api.put(`/clientes/${id}`, data)
     },
-    actualizarClientePATCH(id, data) {
+    cambiarEstado(id, data) {
+        console.log("data: ", data);
         return api.patch(`/clientes/${id}`, data)
     }
 }

@@ -7,7 +7,7 @@
       "telefono": "818-025-1208",
       "empresa": "Don Omar Co.",
       "puesto": "CEO",
-      "estado": 0,
+      "estado": true,
       "id": 1
     },
     {
@@ -17,7 +17,7 @@
       "telefono": "",
       "empresa": "MEXICAN EFFORT",
       "puesto": "Web Developer",
-      "estado": 1,
+      "estado": true,
       "id": 2
     }
   ]

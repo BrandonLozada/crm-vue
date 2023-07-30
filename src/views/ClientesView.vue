@@ -17,8 +17,16 @@ const existenClientes = computed(() => {
     return clientes.value.length > 0
 })
 
-const actualizarEstado = (data) => {
-    console.log("Actualizando...", data)
+// Aplicando Destructuring.
+const actualizarEstado = ({ id, estado }) => {
+    // Le mandamos el "data" de tipo objeto y le cambiamos el valor.
+    ClienteService.cambiarEstado(id, { estado: !estado })
+        .then(() => {
+            // Modificarlo en el state del arreglo de clientes y el DOM.
+            const i = clientes.value.findIndex(cliente => cliente.id === id)
+            clientes.value[i].estado = !estado
+        })
+        .catch(error => console.log("Hubo un error: ", error))
 }
 
 
