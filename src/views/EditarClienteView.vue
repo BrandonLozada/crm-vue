@@ -19,11 +19,12 @@ const formData = reactive({
     email: '',
     telefono: '',
     empresa: '',
-    puesto: ''
+    puesto: '',
+    estado: 1
 })
 
 onMounted(() => {
-    ClienteService.ontenerCliente(id)
+    ClienteService.obtenerCliente(id)
         .then(({data}) => {
             formData.nombre = data.nombre
             formData.apellido = data.apellido
@@ -31,6 +32,7 @@ onMounted(() => {
             formData.telefono = data.telefono
             formData.empresa = data.empresa
             formData.puesto = data.puesto
+            formData.estado = data.estado
 
             // formData.value = data
             // Object.assign(formData, data)
@@ -39,7 +41,9 @@ onMounted(() => {
 })
 
 const handleSubmit = (data) => {
-    console.log("Editando cliente")
+    ClienteService.actualizarCliente(id, data)
+        .then(() => router.push({ name: 'listado-clientes'}))
+        .catch(error => console.log("Ocurrió un error: ", error))
 }
 
 defineProps({
@@ -63,7 +67,7 @@ defineProps({
             <div class="mx-auto md:w-2/3 py-20 px-6">
                 <FormKit
                     type="form"
-                    submit-label="Agregar Cliente"
+                    submit-label="Guardar cambios"
                     incomplete-message="No se pudo enviar, revisa los mensajes"
                     @submit="handleSubmit"
                     :value="formData"
@@ -124,6 +128,17 @@ defineProps({
                         name="puesto"
                         placeholder="Puesto del Cliente"
                         v-model="formData.puesto"
+                    />
+
+                    <FormKit
+                        type="radio"
+                        label="Estado"
+                        :options="{
+                            0: 'Inactivo',
+                            1: 'Activo',
+                        }"
+                        help="¿Cuál es el estado del Cliente?"
+                        v-model="formData.estado"
                     />
 
                 </FormKit>
