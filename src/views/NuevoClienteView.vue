@@ -8,9 +8,6 @@ import Heading from '../components/UI/Heading.vue'
 const route = useRoute()
 const router = useRouter()
 
-console.log("route: ", route)
-console.log("router: ", router)
-
 defineProps({
     titulo: {
         type: String,
