@@ -1,14 +1,14 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue'
-import api from '../lib/axios'
+import ClienteService from '../services/ClienteService'
+import Cliente from '../components/Cliente.vue'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Heading from '../components/UI/Heading.vue'
-import Cliente from '../components/Cliente.vue'
 
 const clientes = ref([])
 
 onMounted(()=> {
-    api.get('/clientes')
+    ClienteService.obtenerClientes()
         .then(({data}) => clientes.value = data)
         .catch(error => console.log('Hubo un error'))
 })

@@ -1,7 +1,7 @@
 <script setup>
 import { FormKit } from '@formkit/vue'
 import { useRoute, useRouter } from 'vue-router'
-import api from '../lib/axios'
+import ClienteService from '../services/ClienteService'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Heading from '../components/UI/Heading.vue'
 
