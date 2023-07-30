@@ -19,6 +19,16 @@
       "puesto": "Web Developer",
       "estado": true,
       "id": 2
+    },
+    {
+      "nombre": "Nombre de Pueba",
+      "apellido": "Apellido de Prueba",
+      "email": "prueba@gmail.com",
+      "telefono": "",
+      "empresa": "Empresa de Prueba",
+      "puesto": "Puesto de Prueba",
+      "estado": true,
+      "id": 3
     }
   ]
 }

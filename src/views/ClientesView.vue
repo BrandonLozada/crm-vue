@@ -5,6 +5,13 @@ import Cliente from '../components/Cliente.vue'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Heading from '../components/UI/Heading.vue'
 
+defineProps({
+    titulo: {
+        type: String,
+        required: true
+    }
+})
+
 const clientes = ref([])
 
 onMounted(()=> {
@@ -29,13 +36,16 @@ const actualizarEstado = ({ id, estado }) => {
         .catch(error => console.log("Hubo un error: ", error))
 }
 
-
-defineProps({
-    titulo: {
-        type: String,
-        required: true
+const eliminarCliente = id => {
+    if(confirm('¿Estás seguro que deseas eliminar el Cliente?')) {
+        ClienteService.eliminarCliente(id)
+            .then(() => {
+                // Traer todos los clientes que sean diferentes al id del cliente dado.
+                clientes.value = clientes.value.filter(cliente => cliente.id !== id)
+            })
+            .catch(error => console.log("Hubo un error: ", error))
     }
-})
+}
 </script>
 
 <template>
@@ -67,6 +77,7 @@ defineProps({
                                 :key="cliente.id"
                                 :cliente="cliente"
                                 @actualizar-estado="actualizarEstado"
+                                @eliminar-cliente="eliminarCliente"
                             />
                         </tbody>
                     </table>
