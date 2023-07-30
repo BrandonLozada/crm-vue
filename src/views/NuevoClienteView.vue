@@ -19,10 +19,11 @@ defineProps({
 })
 
 const handleSubmit = (data) => {
-    api.post('/clientes', data)
+    data.estado = 1
+    ClienteService.agregarCliente(data)
         .then(respuesta => {
             //Redireccionar
-            router.push('/')
+            router.push({ name: 'listado-clientes'})
             console.log(respuesta)
         })
         .catch(error => console.log(error))

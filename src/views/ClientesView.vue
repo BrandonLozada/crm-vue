@@ -10,7 +10,7 @@ const clientes = ref([])
 onMounted(()=> {
     ClienteService.obtenerClientes()
         .then(({data}) => clientes.value = data)
-        .catch(error => console.log('Hubo un error'))
+        .catch(error => console.log('Hubo un error: ', error))
 })
 
 const existenClientes = computed(() => {
