@@ -1,5 +1,13 @@
 {
-    "clientes": [
-
-    ]
+  "clientes": [
+    {
+      "nombre": "William Omar",
+      "apellido": "Landrón",
+      "email": "donomar@gmail.com",
+      "telefono": "818-025-1208",
+      "empresa": "Don Omar Co.",
+      "puesto": "CEO",
+      "id": 1
+    }
+  ]
 }

@@ -1,7 +1,15 @@
 <script setup>
 import { FormKit } from '@formkit/vue'
+import { useRoute, useRouter } from 'vue-router'
+import api from '../lib/axios'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Heading from '../components/UI/Heading.vue'
+
+const route = useRoute()
+const router = useRouter()
+
+console.log("route: ", route)
+console.log("router: ", router)
 
 defineProps({
     titulo: {
@@ -11,15 +19,21 @@ defineProps({
 })
 
 const handleSubmit = (data) => {
-    console.log('submit', data)
+    api.post('/clientes', data)
+        .then(respuesta => {
+            //Redireccionar
+            router.push('/')
+            console.log(respuesta)
+        })
+        .catch(error => console.log(error))
 }
 </script>
 
 <template>
     <div>
         <div class="flex justify-end">
-            <RouterLink to="inicio">
-                Inicio
+            <RouterLink to="listado-clientes">
+                Volver
             </RouterLink>
         </div>
         <Heading class="text-4xl font-extrabold text-slate-500">{{ titulo }}</Heading>
